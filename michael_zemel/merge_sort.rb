@@ -5,11 +5,11 @@ class MergeSort
       last ||= array.size
       middle = ((first + last) / 2).floor # Divide
       if first < last
-        sort(array, first, middle) # Conquer
-        sort(array, middle + 1, last) # Conquer
-        merge(array, first, middle, last) # Combine
+        sort(array, first, middle) # Conquer (recurse and split into n arrays of size 1)
+        sort(array, middle + 1, last) # "
+        merge(array, first, middle, last) # Combine sorted arrays, starting at 2 size 1 arrays, then 2 size 2, 2 size 4, etc.
       end
-      array[first..last - 1]
+      array[first..last - 1] # Returns the array
     end
 
     # Given a first and last index, and an array
